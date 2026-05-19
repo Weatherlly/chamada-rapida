@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Chamada pelo Telefone</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .nav-bar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      justify-content: center;
+    }
+    .nav-bar a {
+      text-decoration: none;
+      background: #e2e8f0;
+      padding: 8px 20px;
+      border-radius: 40px;
+      color: #1e293b;
+      font-weight: bold;
+    }
+    .nav-bar a.active {
+      background: #3b82f6;
+      color: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+    }
+    .actions button {
+      width: auto;
+      padding: 6px 12px;
+      margin: 0 4px;
+      font-size: 0.8rem;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      max-width: 90%;
+      width: 600px;
+      max-height: 80%;
+      overflow-y: auto;
+      border-radius: 24px;
+      padding: 20px;
+    }
+    .close-modal {
+      float: right;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    .student-editor {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <a href="index.html" class="active">📋 Nova Chamada</a>
+        <a href="historico.html">📜 Histórico</a>
+    </div>
+    <div class="container">
+        <h1>📋 Chamada - Frequência</h1>
+
+        <div class="card">
+            <label for="classSelect">Turma:</label>
+            <select id="classSelect">
+                <option value="">Selecione a turma</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <label for="dateInput">Data:</label>
+            <input type="date" id="dateInput">
+        </div>
+
+        <button id="loadStudentsBtn" class="btn-primary">Carregar alunos</button>
+
+        <div id="studentsList" class="students-container"></div>
+
+        <div id="saveSection" style="display: none;">
+            <button id="saveAttendanceBtn" class="btn-save">✅ Salvar frequência</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
